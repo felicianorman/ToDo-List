@@ -19,35 +19,41 @@
   align-items: center;
   justify-content: center;
 
+  h2 {
+    text-align: center;
+    font-size: 2em;
+  }
+
   &__list {
-    border: 1px solid white;
     background-color: var.$list-color;
     width: 90vw;
     height: 60vh;
-
-    h2 {
-      text-align: center;
-    }
+    border: 1px solid var.$trash-color;
   }
 }
 
 @mixin list-style {
     list-style-type: none;
-    position: relative;
 
-    .fa-solid {
-        color: black;
+   .fa-solid {
+    color: var.$trash-color;
+    font-size: 1.2em;
+
+    &:hover {
+        color: #b56e95; 
+        cursor: pointer;
     }
+   }
 
     p {
-        padding: 3px;
+        padding: 5px;
         width: 90%;
         background-color: var.$todo-color;
-        display: inline-block;
-        border: 1px solid var.$bg-color;
+        margin-top: 6%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 1.2em;
     }
 }
 
-// @mixin todos {
-//     padding: 2px;
-// }
