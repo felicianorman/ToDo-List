@@ -1,0 +1,53 @@
+@use "variables" as var;
+
+@mixin tablet {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin base {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__list {
+    border: 1px solid white;
+    background-color: var.$list-color;
+    width: 90vw;
+    height: 60vh;
+
+    h2 {
+      text-align: center;
+    }
+  }
+}
+
+@mixin list-style {
+    list-style-type: none;
+    position: relative;
+
+    .fa-solid {
+        color: black;
+    }
+
+    p {
+        padding: 3px;
+        width: 90%;
+        background-color: var.$todo-color;
+        display: inline-block;
+        border: 1px solid var.$bg-color;
+    }
+}
+
+// @mixin todos {
+//     padding: 2px;
+// }

@@ -1,0 +1,27 @@
+@use "mixins";
+@use "variables" as var;
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var.$font-color;
+    background-color: var.$bg-color;
+}
+
+.container {
+    @include mixins.base;
+
+    &__list {
+        @include mixins.tablet {
+            width: 50vw;
+        }
+    }
+
+    li {
+        @include mixins.list-style;
+    }
+
+    // p {
+    //     @include mixins.todos;
+    // }
+}

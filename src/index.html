@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./scss/main.scss" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Ikon -->
+    <script
+      src="https://kit.fontawesome.com/3dcdd4a12d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- SCSS och JS -->
+    <link href="./scss/main.scss" rel="stylesheet" />
     <script defer src="./js/main.js"></script>
+
     <title>To Do List</title>
-</head>
-<body>
-    
-</body>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="container__list">
+        <h2>To Do List</h2>
+        <ul id="listItems">
+          <li><p>Handla mat<i class="fa-solid fa-trash-can" id="delete"></i></p></li>
+          <li><p>Ta ut hunden</p></li>
+          <li><p>Göra klart JavaScript inlämning</p></li>
+          <li><p>Julpynta</p></li>
+        </ul>
+      </div>
+    </div>
+  </body>
 </html>
