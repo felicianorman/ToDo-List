@@ -11,7 +11,7 @@ for(let i = 0; i < myList.length; i++) {
     let li = document.createElement("li");
     ul.appendChild(li);
 
-    //Publicerar listan i min <li>
+    // Publicerar listan i min <li>
     li.innerHTML = myList[i];
 
     //Skapar <input> 
@@ -20,14 +20,20 @@ for(let i = 0; i < myList.length; i++) {
     inputBox.setAttribute("type", "checkbox");
 
     //Skapar händelse 
-    inputBox.addEventListener("click", markAsChecked);
+    inputBox.addEventListener("click", () => {
+        markAsChecked(inputBox, li);
+    });
 
-    //Kollar om vi checkat vår inputBox
-    function markAsChecked() {
-        if(inputBox.checked === true) {
-            li.innerHTML = "Färdig med uppgiften";
-        }
+}  
+ //Kollar om vi checkat vår inputBo
+    function markAsChecked(inputBox, li) {
+    if(inputBox.checked === true) {
+        console.log("Färdig");
+        myList.splice(0,1); 
+
+        li.innerHTML = "Färdig med uppgiften";
+
+        
     }
-
-
 }
+
