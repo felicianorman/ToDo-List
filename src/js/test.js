@@ -77,13 +77,10 @@ function newToDo() {
   addToList.push(typeInput.value);
   console.log(addToList);
 
-  clearInput();
-
-  for (let i = 0; i < addToList.length; i++) {
-    let newLi = document.createElement("li");
+  let newLi = document.createElement("li");
     ul.appendChild(newLi);
 
-    newLi.innerHTML += `<p>${addToList[i]}</p>`;
+    newLi.innerHTML += addToList;
     addToList.pop();
 
     let inputBox = document.createElement("input");
@@ -92,7 +89,8 @@ function newToDo() {
     // inputBox.classList.add("box");
     inputBox.style.width = "40px";
     inputBox.setAttribute("type", "checkbox");
-  }
+
+  clearInput();
 }
 
 function clearInput() {
