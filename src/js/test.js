@@ -31,16 +31,16 @@ for (let i = 0; i < myList.length; i++) {
   let deleteBtn = document.createElement("button");
   deleteBtn.innerHTML = "X";
 
-  deleteBtn.addEventListener("click", () => {
+  let buttonFunction = deleteBtn.addEventListener("click", () => {
     console.log("Klickad");
 
-    // console.log(myList[i]);
+    //Tar bort värdet från listan med splice
     let deleteArray = myList.splice(i, 1);
     console.log(deleteArray);
 
-    if(deleteArray = true) {
-      li.remove();
-    }
+    // if ((deleteArray = true)) {
+    //   li.remove();
+    // }
   });
 
   // Publicerar lista med objekt i min <li>
@@ -49,6 +49,7 @@ for (let i = 0; i < myList.length; i++) {
   //Skapar <input>
   let inputBox = document.createElement("input");
   li.appendChild(inputBox);
+  inputBox.classList.add("box");
   inputBox.setAttribute("type", "checkbox");
 
   //Skapar händelse
@@ -63,4 +64,37 @@ for (let i = 0; i < myList.length; i++) {
       deleteBtn.remove();
     }
   });
+}
+
+let sendValue = document.getElementById("inputButton");
+let typeInput = document.getElementById("inputField");
+
+sendValue.addEventListener("click", newToDo);
+
+let addToList = [];
+
+function newToDo() {
+  addToList.push(typeInput.value);
+  console.log(addToList);
+
+  clearInput();
+
+  for (let i = 0; i < addToList.length; i++) {
+    let newLi = document.createElement("li");
+    ul.appendChild(newLi);
+
+    newLi.innerHTML += `<p>${addToList[i]}</p>`;
+    addToList.pop();
+
+    let inputBox = document.createElement("input");
+    newLi.appendChild(inputBox);
+
+    // inputBox.classList.add("box");
+    inputBox.style.width = "40px";
+    inputBox.setAttribute("type", "checkbox");
+  }
+}
+
+function clearInput() {
+  typeInput.value = " ";
 }

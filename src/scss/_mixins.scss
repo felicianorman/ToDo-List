@@ -27,8 +27,9 @@
   &__list {
     background-color: var.$list-color;
     width: 90vw;
-    height: 60vw;
+    height: auto;
     border: 1px solid var.$trash-color;
+    margin-bottom: 5%;
   }
 }
 
@@ -43,15 +44,30 @@
     flex-direction: row;
     justify-content: space-between;
 
-    // &:hover {
-    //     color: #b56e95; 
+    // input {
+    //     width: 40px;
     //     cursor: pointer;
     // }
-
-    input {
-        width: 40px;
-        cursor: pointer;
-    }
    }
 
- 
+ @mixin input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    input {
+      width: 30%;
+      padding: 10px;
+    }
+
+ }
+
+@mixin sendBtn {
+  width: 100px;
+}
+
+@mixin inputs {
+  width: 35px;
+}

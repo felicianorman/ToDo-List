@@ -36,3 +36,15 @@ button {
         background-color: #e6abcb; 
     }
 }
+
+#container__input {
+    @include mixins.input;
+}
+
+.inputButton {
+    @include mixins.sendBtn;
+}
+
+.box {
+    @include mixins.inputs;
+}
