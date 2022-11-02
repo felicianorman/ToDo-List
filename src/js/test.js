@@ -4,15 +4,24 @@ let getContainer = document.getElementById("container");
 let ul = document.createElement("ul");
 getContainer.appendChild(ul);
 
-let myList = ["Köp potatis", "Ta ut hunden", "Betala räkningar"];
+//Skapar klass för objekt
+class listObjects {
+  constructor(toDo) {
+    this.toDo = toDo;
+  }
+}
+
+//Ger egenskaper till objekt och lägger i lista
+let myList = [new listObjects("Köp Pepsi Max"), new listObjects("Ät pasta"), new listObjects("Ta ut hunden")];
 
 for (let i = 0; i < myList.length; i++) {
   //Skapar <li>
   let li = document.createElement("li");
   ul.appendChild(li);
 
-  // Publicerar listan i min <li>
-  li.innerHTML = myList[i];
+  // Publicerar lista med objekt i min <li>
+  console.log(myList[i].toDo);
+  li.innerHTML = myList[i].toDo;
 
   //Skapar <input>
   let inputBox = document.createElement("input");
@@ -28,7 +37,9 @@ for (let i = 0; i < myList.length; i++) {
 //Kollar om vi checkat vår inputBox
 function markAsChecked(inputBox, li) {
   if (inputBox.checked === true) {
-     console.log("Ska hända något");
+    let potato = myList.indexOf("Köp potatis");
+    li.innerHTML = "Uppgift avklarad";
+
   }
 
 }
