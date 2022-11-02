@@ -27,7 +27,7 @@
   &__list {
     background-color: var.$list-color;
     width: 90vw;
-    height: 60vh;
+    height: 60vw;
     border: 1px solid var.$trash-color;
   }
 }
@@ -43,14 +43,15 @@
     flex-direction: row;
     justify-content: space-between;
 
-    &:hover {
-        color: #b56e95; 
-        cursor: pointer;
-    }
+    // &:hover {
+    //     color: #b56e95; 
+    //     cursor: pointer;
+    // }
 
     input {
-        width: 50px;
+        width: 40px;
+        cursor: pointer;
     }
    }
 
-
+ 

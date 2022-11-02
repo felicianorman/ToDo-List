@@ -6,22 +6,45 @@ getContainer.appendChild(ul);
 
 //Skapar klass för objekt
 class listObjects {
-  constructor(toDo) {
+  constructor(toDo, done) {
     this.toDo = toDo;
+    this.done = done;
   }
 }
 
 //Ger egenskaper till objekt och lägger i lista
-let myList = [new listObjects("Köp Pepsi Max"), new listObjects("Ät pasta"), new listObjects("Ta ut hunden")];
+let myList = [
+  new listObjects("Köp Pepsi Max", false),
+  new listObjects("Ät pasta", false),
+  new listObjects("Ta ut hunden", false),
+];
 
 for (let i = 0; i < myList.length; i++) {
   //Skapar <li>
   let li = document.createElement("li");
   ul.appendChild(li);
 
+  let pTag = document.createElement("p");
+  li.appendChild(pTag);
+
+  //Skapar knapp
+  let deleteBtn = document.createElement("button");
+  deleteBtn.innerHTML = "X";
+
+  deleteBtn.addEventListener("click", () => {
+    console.log("Klickad");
+
+    // console.log(myList[i]);
+    let deleteArray = myList.splice(i, 1);
+    console.log(deleteArray);
+
+    if(deleteArray = true) {
+      li.remove();
+    }
+  });
+
   // Publicerar lista med objekt i min <li>
-  console.log(myList[i].toDo);
-  li.innerHTML = myList[i].toDo;
+  pTag.innerHTML = myList[i].toDo;
 
   //Skapar <input>
   let inputBox = document.createElement("input");
@@ -30,17 +53,14 @@ for (let i = 0; i < myList.length; i++) {
 
   //Skapar händelse
   inputBox.addEventListener("click", () => {
-    markAsChecked(inputBox, li);
+    if (inputBox.checked === true) {
+      myList[i].done = true;
+      pTag.innerHTML = "Uppgift avklarad";
+      li.appendChild(deleteBtn);
+    } else {
+      myList[i].done = false;
+      pTag.innerHTML = myList[i].toDo;
+      deleteBtn.remove();
+    }
   });
 }
-
-//Kollar om vi checkat vår inputBox
-function markAsChecked(inputBox, li) {
-  if (inputBox.checked === true) {
-    let potato = myList.indexOf("Köp potatis");
-    li.innerHTML = "Uppgift avklarad";
-
-  }
-
-}
-

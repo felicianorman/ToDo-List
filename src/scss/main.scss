@@ -22,3 +22,17 @@ body {
     }
 
 }
+
+button {
+    width: 50px;
+    height: 40px;
+    background-color: var.$bg-color;
+    border: none;
+    font-size: 1em;
+    margin: 10px;
+    // margin-right: -40px;
+
+    &:hover {
+        background-color: #e6abcb; 
+    }
+}
