@@ -1,3 +1,5 @@
+import { listObjects } from "./models/todo";
+
 let getContainer = document.getElementById("container");
 
 //Skapar ul
@@ -5,12 +7,12 @@ let ul = document.createElement("ul");
 getContainer.appendChild(ul);
 
 //Skapar klass för objekt
-class listObjects {
-  constructor(toDo, done) {
-    this.toDo = toDo;
-    this.done = done;
-  }
-}
+// class listObjects {
+//   constructor(toDo, done) {
+//     this.toDo = toDo;
+//     this.done = done;
+//   }
+// }
 
 //Ger egenskaper till objekt och lägger i lista
 let myList = [
@@ -19,14 +21,12 @@ let myList = [
   new listObjects("Ta ut hunden", false),
 ];
 
-
-
 function existingList() {
   for (let i = 0; i < myList.length; i++) {
     //Skapar <li>
     let li = document.createElement("li");
 
-    //Tömma ul innan 
+    //Tömma ul innan
     ul.appendChild(li);
 
     //Lägger p tag i <li>
@@ -61,63 +61,10 @@ function handleClick(li, clickedItem, inputBox) {
     console.log("Borttagen " + index);
     console.log(myList);
 
+    // finishedItems()
   }
   ul.innerHTML = " ";
-  existingList()
+  existingList();
 }
 
 existingList();
-
-//
-
-let addToList = [];
-
-//Hittar input fältet
-let sendValue = document.getElementById("inputButton");
-let typeInput = document.getElementById("inputField");
-
-sendValue.addEventListener("click", newToDo);
-
-function newToDo() {
-  addToList.push(typeInput.value);
-  console.log(addToList);
-
-  let newLi = document.createElement("li");
-  ul.appendChild(newLi);
-
-  newLi.innerHTML += addToList;
-  addToList.pop();
-
-  let inputBox = document.createElement("input");
-  newLi.appendChild(inputBox);
-
-  let deleteNewValue = document.createElement("button");
-  deleteNewValue.inputBox.classList.add("box");
-  inputBox.style.width = "40px";
-  inputBox.setAttribute("type", "checkbox");
-
-  inputBox.addEventListener("click", () => {
-    if (inputBox.checked === true) {
-      newLi.innerHTML = "Uppgiften avklarad";
-    }
-  });
-
-  clearInput();
-}
-
-function clearInput() {
-  typeInput.value = " ";
-}
-
-function button() {
-  //Skapar knapp
-  // let deleteBtn = document.createElement("button");
-  // deleteBtn.innerHTML = "X";
-  //Skapar event listener för ta bort knappen
-  // let buttonFunction = deleteBtn.addEventListener("click", () => {
-  //   console.log("Klickad");
-  //   //Tar bort värdet från listan med splice
-  //   let deleteArray = myList.splice(i, 1);
-  //   console.log(deleteArray);
-  // });
-}
