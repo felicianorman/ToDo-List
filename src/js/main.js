@@ -32,19 +32,28 @@ function existingList() {
     // Publicerar lista med objekt i min <li>
     pTag.innerHTML = myList[i].toDo;
 
-    //Skapar <input>
     let inputBox = document.createElement("input");
     li.appendChild(inputBox);
     inputBox.classList.add("box");
     inputBox.setAttribute("type", "checkbox");
 
-    inputBox.addEventListener("click", () => {
-      handleClick(myList[i], inputBox);
-    });
-
-
+      inputBox.addEventListener("click", () => {
+        handleClick(myList[i], inputBox);
+      });
+    };
   }
-}
+
+  //Skapar <input>
+  //   let inputBox = document.createElement("input");
+  //   li.appendChild(inputBox);
+  //   inputBox.classList.add("box");
+  //   inputBox.setAttribute("type", "checkbox");
+
+  //   inputBox.addEventListener("click", () => {
+  //     handleClick(myList[i], inputBox);
+  //   });
+  // }
+
 
 //Ny lista där avklarade objekt läggs till i
 let finishedList = [];
@@ -68,6 +77,9 @@ function handleClick(clickedItem, inputBox) {
   if ((clickedItem.done = true)) {
     let li = document.createElement("li");
     newUl.appendChild(li);
+
+    let undoButton = document.getElementById("remove");
+
     //Pushar de klara uppgifterna till nya listan
     finishedList.push(clickedItem.toDo);
 
@@ -80,16 +92,32 @@ function handleClick(clickedItem, inputBox) {
       console.log("Du ångrade dig!");
       myList.push(finishedList);
 
-      li.innerHTML = " ";
-
       li.innerHTML = clickedItem.toDo;
       console.log(clickedItem.toDo);
       ul.appendChild(li);
-
     });
-    // existingList()
   }
+  newToDo(inputBox);
 }
 
+let inputValue = document.getElementById("inputNewValue");
+let sendValue = document.getElementById("buttonNewValue");
 
+function newToDo(inputBox) {
+  sendValue.addEventListener("click", () => {
+    let newToDoLi = document.createElement("li");
+    ul.appendChild(newToDoLi);
+
+    newToDoLi.innerHTML = inputValue.value;
+
+    let inputBox = document.createElement("input");
+    newToDoLi.appendChild(inputBox);
+    inputBox.classList.add("box");
+    inputBox.setAttribute("type", "checkbox");
+
+    console.log(inputValue.value);
+  });
+}
+
+newToDo();
 existingList();
