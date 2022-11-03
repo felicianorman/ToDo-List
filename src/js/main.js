@@ -6,15 +6,6 @@ let getContainer = document.getElementById("container");
 let ul = document.createElement("ul");
 getContainer.appendChild(ul);
 
-//Skapar klass för objekt
-// class listObjects {
-//   constructor(toDo, done) {
-//     this.toDo = toDo;
-//     this.done = done;
-//   }
-// }
-
-//Ger egenskaper till objekt och lägger i lista
 let myList = [
   new listObjects("Köp Pepsi Max", false),
   new listObjects("Ät pasta", false),
@@ -23,10 +14,10 @@ let myList = [
 
 function existingList() {
   for (let i = 0; i < myList.length; i++) {
+
     //Skapar <li>
     let li = document.createElement("li");
 
-    //Tömma ul innan
     ul.appendChild(li);
 
     //Lägger p tag i <li>
@@ -53,18 +44,17 @@ function existingList() {
 function handleClick(li, clickedItem, inputBox) {
   if (inputBox.checked === true) {
     clickedItem.done = true;
-    console.log(true);
 
     let index = myList.indexOf(clickedItem);
     myList.splice(index, 1);
 
-    console.log("Borttagen " + index);
+    console.log("Uppgiften avklarad");
     console.log(myList);
 
-    // finishedItems()
   }
   ul.innerHTML = " ";
   existingList();
 }
 
 existingList();
+
