@@ -23,28 +23,14 @@ body {
 
 }
 
-button {
-    width: 50px;
-    height: 40px;
-    background-color: var.$bg-color;
-    font-size: 1em;
-    margin: 10px;
-    border: 1px lightblue solid;
-    // margin-right: -40px;
-
-    &:hover {
-        background-color: #e6abcb; 
-    }
-}
-
-#container__input {
-    @include mixins.input;
-}
-
-.inputButton {
-    @include mixins.sendBtn;
-}
-
 .box {
-    @include mixins.inputs;
+    @include mixins.checkbox;
+}
+
+.newValueInput {
+    @include mixins.newInput;
+}
+
+.newValueButton {
+    @include mixins.sendBtn;
 }

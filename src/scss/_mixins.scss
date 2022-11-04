@@ -51,18 +51,26 @@
     justify-content: center;
     align-items: center;
 
-
-    input {
-      width: 30%;
-      padding: 10px;
-    }
-
  }
 
-@mixin sendBtn {
-  width: 100px;
+@mixin checkbox {
+  width: 35px;
 }
 
-@mixin inputs {
-  width: 35px;
+@mixin newInput {
+  padding: 10px;
+
+}
+
+@mixin sendBtn {
+  margin: 1%;
+  width: 100px;
+  padding: 15px;
+  font-size: 1.2em;
+  background-color: var.$list-color;
+  border: 1px solid var.$trash-color;
+
+  &:hover {
+    background-color: var.$trash-color;
+  }
 }
