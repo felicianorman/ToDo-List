@@ -1,8 +1,10 @@
 import { listObjects } from "./models/todo";
 
-//HTML
+//Hämtar div:ar från HTML
 let getContainer = document.getElementById("container");
 let newContainer = document.getElementById("finished");
+
+//Skapar HTML
 let ul = document.createElement("ul");
 getContainer.appendChild(ul);
 let newUl = document.createElement("ul");
