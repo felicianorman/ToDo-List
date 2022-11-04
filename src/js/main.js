@@ -35,6 +35,7 @@ function existingList() {
     inputBox.classList.add("box");
     inputBox.setAttribute("type", "checkbox");
 
+    //Eventlistener för inputboxen
     inputBox.addEventListener("click", () => {
       handleClick(myList[i], inputBox);
     });
@@ -57,18 +58,16 @@ function handleClick(clickedItem, inputBox) {
   ul.innerHTML = " ";
   existingList();
 
+  //Efter användaren kryssat i inputboxen hamnar de avklarade To do objekten här
   let newLi = document.createElement("li");
   newUl.appendChild(newLi);
-
   newLi.appendChild(inputBox);
 
-  //Efter användaren kryssat i inputboxen hamnar de avklarade to do objekten här
   //Dyker upp i li-tag så checkboxen inte kommer med
   if (clickedItem.done === true) {
     newLi.innerHTML = clickedItem.toDo;
   }
 }
-
 
 //Försökte börja på en funktion som låter användaren skriva in egna input värden
 //Fungerar men är inte kopplad till eventlistener för inputboxen
